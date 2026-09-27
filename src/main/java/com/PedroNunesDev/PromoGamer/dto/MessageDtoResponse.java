@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 
 public record MessageDtoResponse(
 
-        Long id,
+        Long messageId,
         DealDtoResponse deal,
         LocalDateTime sendAt,
         LocalDateTime creationAt,
