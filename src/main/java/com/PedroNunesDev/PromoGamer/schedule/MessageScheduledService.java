@@ -34,8 +34,7 @@ public class MessageScheduledService {
         executarEnvioDeMensagem();
     }
 
-    //@Scheduled(cron = "0 0/10 18-20 * * *", zone = "America/Recife")
-    @Scheduled(initialDelay = 1, fixedDelay = 1,timeUnit = TimeUnit.MINUTES)
+    @Scheduled(cron = "0 0/10 18-20 * * *", zone = "America/Recife")
     public void executarNaJanelaNoite(){
         executarEnvioDeMensagem();
     }
