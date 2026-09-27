@@ -1,11 +1,11 @@
 package com.PedroNunesDev.PromoGamer.schedule;
 
+import com.PedroNunesDev.PromoGamer.client.EvolutionApiService;
 import com.PedroNunesDev.PromoGamer.dto.MessageDtoResponse;
 import com.PedroNunesDev.PromoGamer.dto.WhatsappMessagePayloadDTO;
 import com.PedroNunesDev.PromoGamer.exception.ResourceNotFoundException;
 import com.PedroNunesDev.PromoGamer.model.Message;
 import com.PedroNunesDev.PromoGamer.repository.MessageRepository;
-import com.PedroNunesDev.PromoGamer.client.EvolutionApiService;
 import com.PedroNunesDev.PromoGamer.service.MessageService;
 import feign.FeignException;
 import lombok.RequiredArgsConstructor;
@@ -14,8 +14,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.concurrent.TimeUnit;
 
 @Component
 @RequiredArgsConstructor
@@ -55,7 +53,7 @@ public class MessageScheduledService {
 
             log.info("Envio de mensagem concluido com sucesso!");
 
-            updateMessage(response.id()); // marca como enviada
+            updateMessage(response.messageId()); // marca como enviada
         }
         catch (ResourceNotFoundException e){
             log.warn(e.getMessage());
