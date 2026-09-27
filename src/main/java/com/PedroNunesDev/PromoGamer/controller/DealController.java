@@ -24,6 +24,7 @@ public class DealController {
 
         return ResponseEntity.ok(deals);
     }
+
     @GetMapping("/status")
     public ResponseEntity<List<DealDtoResponse>> getAllDealsByStatus(@RequestParam String statusType){
 

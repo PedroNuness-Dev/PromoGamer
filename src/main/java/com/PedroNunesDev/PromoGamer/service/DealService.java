@@ -51,7 +51,7 @@ public class DealService {
 
             log.info("Página {}: {} novas deals encontradas", initialPageNumber, newDeals.size());
 
-            dealsForSaving.addAll(newDeals.stream()
+            dealsForSaving.addAll(newDeals.stream() // Analisar melhoria para não entrar na construção se vier vazia
                     .map(deal -> Deal.builder()
                             .dealId(deal.dealID())
                             .title(deal.title())

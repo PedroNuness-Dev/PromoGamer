@@ -1,5 +1,6 @@
 package com.PedroNunesDev.PromoGamer.service;
 
+import com.PedroNunesDev.PromoGamer.client.CheapSharkApiService;
 import com.PedroNunesDev.PromoGamer.dto.CheapSharkDealDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

@@ -1,6 +1,8 @@
-package com.PedroNunesDev.PromoGamer.service;
+package com.PedroNunesDev.PromoGamer.schedule;
 
 import com.PedroNunesDev.PromoGamer.dto.DealDtoResponse;
+import com.PedroNunesDev.PromoGamer.service.DealService;
+import feign.FeignException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -25,8 +27,14 @@ public class DealScheduledService {
             List<DealDtoResponse> deals = dealService.registerDeals(STEAM_STORE_ID);
 
             log.info("{} new deals registered.", deals.size());
-        } catch (Exception e) {
-            log.error("Error during scheduled deal registration. ", e);
+        } catch (FeignException.NotFound e) {
+            log.warn("Ocorreu um erro na busca de promoções na API do CheapShark: {}", e.getMessage());
+        }
+        catch (FeignException.TooManyRequests e){
+            log.error("Ocorreu um erro 429 na API do CheapShark: {}", e.getMessage());
+        }
+        catch (Exception e){
+            log.error("Ocorreu um erro inesperado: {}", e.getMessage());
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.PedroNunesDev.PromoGamer.service;
+package com.PedroNunesDev.PromoGamer.client;
 
 import com.PedroNunesDev.PromoGamer.dto.SteamAppDataDTO;
 import com.PedroNunesDev.PromoGamer.dto.SteamDetailsWrapper;

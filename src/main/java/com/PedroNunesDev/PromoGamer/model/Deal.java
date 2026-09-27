@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
 public class Deal implements Persistable<String>,Serializable {
 
     @Id
-    @Column(name = "id_deal", unique = true)
+    @Column(name = "deal_id", unique = true)
     private String dealId;
 
     @Column(nullable = false)

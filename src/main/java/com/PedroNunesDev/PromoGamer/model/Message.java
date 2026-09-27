@@ -18,11 +18,11 @@ public class Message {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_message")
-    private Long id;
+    @Column(name = "message_id")
+    private Long messageId;
 
     @OneToOne
-    @JoinColumn(name = "id_deal")
+    @JoinColumn(name = "deal_id")
     private Deal deal;
 
     @Column(name = "send_date")

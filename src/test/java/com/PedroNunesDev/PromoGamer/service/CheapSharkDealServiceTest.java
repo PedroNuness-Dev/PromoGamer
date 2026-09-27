@@ -1,5 +1,6 @@
 package com.PedroNunesDev.PromoGamer.service;
 
+import com.PedroNunesDev.PromoGamer.client.CheapSharkApiService;
 import com.PedroNunesDev.PromoGamer.dto.CheapSharkDealDTO;
 import static org.junit.jupiter.api.Assertions.*;
 
