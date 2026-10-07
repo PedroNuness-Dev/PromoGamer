@@ -4,6 +4,7 @@ import com.PedroNunesDev.PromoGamer.enums.DealEnumStatus;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.jspecify.annotations.Nullable;
 import org.springframework.data.domain.Persistable;
 
@@ -41,6 +42,10 @@ public class Deal implements Persistable<String>,Serializable {
     @CreationTimestamp
     @Column(name = "creation_date", nullable = false)
     private LocalDateTime creationDate;
+
+    @UpdateTimestamp
+    @Column(name = "update_date", nullable = false)
+    private LocalDateTime updateDate;
 
     @Transient
     @Builder.Default

@@ -41,8 +41,8 @@ public class SteamService {
 
             SteamAppDataDTO appGame = appWrapperOpt.get().data();
 
-            if (appGame.priceOverview().discountPercent() == 0) {
-                log.info("Percetual de desconto da promoção do app com SteamAppId: [{}] é igual a 0", steamAppId);
+            if (appGame.priceOverview() == null || appGame.priceOverview().discountPercent() == 0) {
+                log.info("Percetual de desconto da promoção do app com SteamAppId: [{}] é igual a 0 ou nulo", steamAppId);
                 return null;
             }
 
@@ -76,8 +76,8 @@ public class SteamService {
 
            SteamPackageDataDTO packageGame = packageWrapperOpt.get().data();
 
-            if (packageGame.price().discountPercent() == 0) {
-                log.info("Percetual de desconto da promoção do pacote com SteamAppId: [{}] é igual a 0", steamAppId);
+            if (packageGame.price() == null || packageGame.price().discountPercent() == 0) {
+                log.info("Percetual de desconto da promoção do pacote com SteamAppId: [{}] é igual a 0 ou nulo", steamAppId);
                 return null;
             }
 
