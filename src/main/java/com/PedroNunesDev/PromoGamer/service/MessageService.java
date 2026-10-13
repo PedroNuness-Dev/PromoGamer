@@ -46,18 +46,21 @@ public class MessageService {
 
         Message message = buildMessageWithDetails(deal);
 
-        if (message == null){
-            deal.updateStatus(DealEnumStatus.IGNORADO);
-            dealRepository.save(deal);
-            return null;
-        }
+        updateDealByMessageValue(deal,message);
 
         Message newMessage = messageRepository.save(message);
 
-        deal.updateStatus(DealEnumStatus.PROCESSADO);
-        dealRepository.save(deal);
-
         return messageMapper.toDTO(newMessage);
+    }
+
+    private void updateDealByMessageValue(Deal deal, Message message){
+        if (message == null){
+            deal.updateStatus(DealEnumStatus.IGNORADO);
+        }
+        else{
+            deal.updateStatus(DealEnumStatus.PROCESSADO);
+        }
+        dealRepository.save(deal);
     }
 
     private Message buildMessageWithDetails(Deal deal){
